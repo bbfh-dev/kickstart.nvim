@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>gg', vim.cmd.Git, { desc = 'Open git menu' })
+vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR><CMD>tabnew %<CR>', { desc = 'Open git menu' })
 vim.keymap.set('n', '<leader>gc', '<CMD>Git commit<CR>', { desc = 'Git commit' })
 vim.keymap.set('n', '<leader>gp', '<CMD>Git push<CR>', { desc = 'Git push' })
 

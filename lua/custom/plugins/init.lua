@@ -79,7 +79,10 @@ return {
   },
 
   --? NOTE: Use treesitter to auto close and auto rename html tag
-  'windwp/nvim-ts-autotag',
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {},
+  },
 
   --? NOTE: Quickly navigate between pinned files
   {
@@ -160,7 +163,7 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
     opts = {
-      max_join_length = 1000,
+      max_join_length = 10000,
     },
   },
 
@@ -177,7 +180,16 @@ return {
   --? NOTE: The fastest Neovim colorizer.
   {
     'norcalli/nvim-colorizer.lua',
-    opts = {},
+    opts = {
+      '*',
+      less = {
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      },
+    },
   },
   'KabbAmine/vCoolor.vim',
 
@@ -252,5 +264,22 @@ return {
       },
       mouse_delay = 1000,
     },
+  },
+
+  --? NOTE:  that runs gotests with Neovim
+  {
+    'yanskun/gotests.nvim',
+    ft = 'go',
+    config = function()
+      require('gotests').setup()
+    end,
+  },
+  {
+    'olexsmir/gopher.nvim',
+    ft = 'go',
+    -- branch = "develop"
+    -- (optional) will update plugin's deps on every update
+    ---@type gopher.Config
+    opts = {},
   },
 }

@@ -1,6 +1,6 @@
 -- File management
 vim.keymap.set('n', '<leader>w', vim.cmd.w)
-vim.keymap.set('n', '<leader>W', '<cmd>noautocmd w<CR>')
+vim.keymap.set('n', '<leader><C-w>', '<cmd>noautocmd w<CR>')
 vim.keymap.set('n', '<leader>q', function()
   vim.cmd 'q'
 end)
@@ -69,5 +69,7 @@ end, { desc = 'hover.nvim (next source)' })
 -- Mouse support
 vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = 'hover.nvim (mouse)' })
 vim.o.mousemoveevent = true
+
+vim.keymap.set('n', '<leader>W', '<CMD>w<CR><CMD>!./build.sh<CR><CR>')
 
 return {}

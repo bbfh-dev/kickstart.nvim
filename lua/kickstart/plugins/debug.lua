@@ -68,6 +68,29 @@ return {
       end,
       desc = 'Debug: Set Breakpoint',
     },
+    {
+      '<leader>Lu',
+      function()
+        local widgets = require 'dap.ui.widgets'
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      desc = 'Debug: Open UI',
+    },
+    {
+      '<leader>Lt',
+      function()
+        require('dap-go').debug_test()
+      end,
+      desc = 'Debug: Current go test',
+    },
+    {
+      '<leader>LT',
+      function()
+        require('dap-go').debug_last_test()
+      end,
+      desc = 'Debug: Last go test',
+    },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<F7>',
